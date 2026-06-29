@@ -27,16 +27,14 @@
         .landing h1 { font-family: 'DM Serif Display', serif; font-size: 1.4rem; font-style: italic; margin-bottom: 60px; letter-spacing: -0.2px; font-weight: 400; }
         .main-trigger { cursor: pointer; border: none; background: none; }
         .main-trigger svg { width: 60px; height: 60px; fill: var(--deep-charcoal); opacity: 0.6; transition: 0.5s; }
-        .main-trigger:hover svg { transform: translateY(-8px); fill: var(--olive-point); }
 
         /* Container */
         .container { max-width: 580px; margin: 0 auto; padding: 20px 25px; display: none; }
         .container.visible { display: block; }
 
-        /* Small Cute Nav */
+        /* Nav */
         .page-header { display: flex; justify-content: space-between; align-items: center; padding: 20px 0; position: sticky; top: 0; background-color: var(--oak-bg); z-index: 60; }
         .back-btn { border: none; background: none; cursor: pointer; opacity: 0.3; transition: 0.3s; }
-        .back-btn:hover { opacity: 1; }
         .back-btn svg { width: 25px; height: 12px; fill: var(--deep-charcoal); }
 
         .category-nav { display: flex; gap: 8px; }
@@ -46,65 +44,58 @@
         }
         .nav-icon-btn.active { opacity: 1; background: var(--olive-point); border-color: var(--olive-point); }
         .nav-icon-btn.active .nav-label { color: #fff; }
-        .nav-label { font-family: 'Montserrat', sans-serif; font-size: 0.5rem; font-weight: 700; letter-spacing: 1px; color: var(--deep-charcoal); }
+        .nav-label { font-family: 'Montserrat', sans-serif; font-size: 0.5rem; font-weight: 700; letter-spacing: 1px; }
 
         .search-wrapper { margin: 20px 0 50px 0; }
         .search-input { 
             width: 100%; border: none; border-bottom: 1px solid rgba(0, 0, 0, 0.08); 
-            background: transparent; padding: 12px 0; font-family: 'Lora', serif; 
-            font-size: 0.95rem; outline: none; text-align: left; font-style: italic;
+            background: transparent; padding: 12px 0; font-family: 'Lora', serif; font-size: 0.95rem; outline: none; font-style: italic;
         }
 
-        .area-section { margin-bottom: 120px; }
         .area-header { 
             font-family: 'DM Serif Display', serif; font-style: italic; font-size: 1.6rem; 
-            margin-bottom: 60px; color: var(--olive-point); text-align: left; letter-spacing: -0.5px;
-            border-bottom: 2px solid var(--olive-point); padding-bottom: 8px;
+            margin-bottom: 60px; color: var(--olive-point); border-bottom: 2px solid var(--olive-point); padding-bottom: 8px;
         }
 
-        .shop-item { margin-bottom: 90px; opacity: 0; transform: translateY(30px); transition: 1s ease-out; text-align: left; }
+        .shop-item { margin-bottom: 90px; opacity: 0; transform: translateY(30px); transition: 1s ease-out; }
         .shop-item.visible { opacity: 1; transform: translateY(0); }
         
-        /* 1. 주소 (0.55rem, South Melbourne 등 단어 묶음 유지) */
         .shop-addr { 
             font-family: 'Montserrat', sans-serif; font-size: 0.55rem; font-weight: 700; color: var(--latte-point); 
-            letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 3px; display: block;
-            white-space: normal; word-break: keep-all; line-height: 1.4;
+            letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 3px; line-height: 1.5;
         }
-        .shop-name { font-family: 'DM Serif Display', serif; font-size: 1.5rem; line-height: 1.2; font-weight: 400; margin-bottom: 6px; color: var(--deep-charcoal); }
-        .shop-purpose { font-family: 'Montserrat', sans-serif; font-size: 0.65rem; font-weight: 600; color: var(--olive-point); letter-spacing: 0.5px; margin-bottom: 4px; }
-        .shop-weather { font-size: 0.8rem; font-style: italic; opacity: 0.4; margin-bottom: 25px; }
-
-        /* 2줄 특징 섹션 (양쪽 정렬) */
-        .info-row { display: flex; gap: 15px; margin-bottom: 12px; align-items: flex-start; border-bottom: 1px solid rgba(0,0,0,0.03); padding-bottom: 8px; }
-        .info-label { font-family: 'Montserrat', sans-serif; font-size: 0.5rem; font-weight: 700; min-width: 60px; opacity: 0.3; text-transform: uppercase; letter-spacing: 1px; padding-top: 6px; }
-        .info-content { 
-            font-size: 0.95rem; opacity: 0.9; line-height: 1.45; width: 100%; 
-            white-space: normal; text-align: justify; font-family: 'Lora', serif;
+        
+        .shop-name { 
+            font-family: 'DM Serif Display', serif; font-size: 1.35rem; line-height: 1.2; font-weight: 400; 
+            color: var(--deep-charcoal); white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
         }
 
-        /* Olive Cup Button */
-        .open-scene-btn { 
-            display: inline-flex; align-items: center; gap: 10px; margin-top: 15px;
-            cursor: pointer; border: none; background: none; transition: 0.3s; padding: 5px 0;
-        }
-        .open-scene-btn:hover { opacity: 0.6; }
-        .cup-box { position: relative; width: 35px; height: 35px; }
-        .cup-svg { width: 32px; height: 32px; fill: none; stroke: var(--olive-point); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
-        .btn-text { font-family: 'Montserrat', sans-serif; font-size: 0.6rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--olive-point); }
+        /* Action Group */
+        .action-group { display: flex; align-items: center; gap: 12px; margin: 8px 0 20px 0; }
+        .btn-text { font-family: 'Montserrat', sans-serif; font-size: 0.6rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--olive-point); }
+        
+        .icon-btn { cursor: pointer; border: none; background: none; display: flex; align-items: center; transition: 0.3s; position: relative; }
+        .icon-btn:hover { opacity: 0.5; }
+        .btn-icon-svg { width: 18px; height: 18px; fill: none; stroke: var(--olive-point); stroke-width: 1.5; }
 
-        /* Steam Animation */
-        .steam-line { stroke: var(--olive-point); stroke-width: 1.8; stroke-linecap: round; opacity: 0; fill: none; }
-        .open-scene-btn.animating .steam-line { animation: steam-rise 1s forwards; }
-        .open-scene-btn:hover .steam-line { animation: steam-rise 1.2s infinite; }
-        .steam-line:nth-child(2) { animation-delay: 0.1s; }
-        .steam-line:nth-child(3) { animation-delay: 0.2s; }
+        /* Steam Animation (밀착 조정) */
+        .steam-wrap { position: absolute; top: -5px; left: 50%; transform: translateX(-50%); display: none; }
+        .steam-line { stroke: var(--olive-point); stroke-width: 1.5; fill: none; opacity: 0; }
+        .icon-btn.animating .steam-wrap { display: block; }
+        .icon-btn.animating .steam-line { animation: steam-rise 0.95s forwards; }
 
         @keyframes steam-rise {
             0% { opacity: 0; transform: translateY(0); }
-            40% { opacity: 0.6; }
-            100% { opacity: 0; transform: translateY(-12px); }
+            40% { opacity: 0.8; }
+            100% { opacity: 0; transform: translateY(-8px); }
         }
+
+        /* Weather Section (Purpose 대체) */
+        .shop-weather-box { font-family: 'Montserrat', sans-serif; font-size: 0.75rem; font-style: italic; font-weight: 500; color: var(--olive-point); letter-spacing: 0.2px; margin-bottom: 20px; opacity: 0.8; }
+
+        .info-row { display: flex; gap: 15px; margin-bottom: 12px; align-items: flex-start; border-bottom: 1px solid rgba(0,0,0,0.03); padding-bottom: 8px; }
+        .info-label { font-family: 'Montserrat', sans-serif; font-size: 0.5rem; font-weight: 700; min-width: 75px; opacity: 0.3; text-transform: uppercase; letter-spacing: 1px; padding-top: 6px; }
+        .info-content { font-size: 0.9rem; opacity: 0.9; line-height: 1.45; text-align: justify; font-family: 'Lora', serif; }
 
         footer { text-align: left; padding: 80px 25px; border-top: 1px solid rgba(0,0,0,0.03); opacity: 0.2; font-size: 0.7rem; letter-spacing: 2px; font-style: italic; }
     </style>
@@ -114,16 +105,8 @@
     <svg style="display:none;">
         <symbol id="main-coffee" viewBox="0 0 24 24"><path d="M5 11h11c1.1 0 2 .9 2 2v3c0 2.2-1.8 4-4 4H7c-2.2 0-4-1.8-4-4v-3c0-1.1.9-2 2-2zm13 2h2c1.1 0 2 .9 2 2s-.9 2-2 2h-2v-4z"/><path d="M8 8c0-2 1-2 1-4M12 9c0-3 1-3 1-5M16 8c0-2 1-2 1-4" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
         <symbol id="ui-back" viewBox="0 0 40 20"><path d="M10 10 L35 10 M10 10 L18 4 M10 10 L18 16" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
-        <symbol id="icon-cup-olive" viewBox="0 0 50 50">
-            <g transform="translate(0, 5)">
-                <path class="steam-line" d="M18 5 Q20 0 18 -5" />
-                <path class="steam-line" d="M25 5 Q27 0 25 -5" />
-                <path class="steam-line" d="M32 5 Q34 0 32 -5" />
-            </g>
-            <path d="M13 41h24" />
-            <path d="M16 18h18v10c0 5.5-4.5 10-10 10s-10-4.5-10-10v-10z" />
-            <path d="M34 21c3.5 0 6 2.5 6 5s-2.5 5-6 5" />
-        </symbol>
+        <symbol id="icon-insta" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></symbol>
+        <symbol id="icon-cup-small" viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/></symbol>
     </svg>
 
     <div class="landing" id="landing">
@@ -135,9 +118,7 @@
 
     <div class="container" id="main-container">
         <header class="page-header">
-            <button class="back-btn" onclick="goBack()">
-                <svg><use href="#ui-back"></use></svg>
-            </button>
+            <button class="back-btn" onclick="goBack()"><svg><use href="#ui-back"></use></svg></button>
             <nav class="category-nav" id="sub-nav"></nav>
         </header>
 
@@ -152,64 +133,54 @@
     <script>
         const database = [
             // --- Melbourne CBD ---
-            { area: 'Melbourne CBD', name: "Patricia Coffee Brewers", addr: "Little Bourke St", weather_ko: "흐린 구름 사이 정갈한 햇살", weather_en: "Clear sun through hazy clouds", purpose_ko: "멜버른 커피 리추얼의 정수", purpose_en: "Essence of Melb coffee ritual", desc_ko: "노신사와 바리스타의 정중한 눈인사. 도심의 소음을 지워버리는 가장 정적인 오프닝이자 우아한 아침의 시작.", desc_en: "Nods between baristas and regulars. A static opening that erases the city's noise for an elegant start.", beans: "Patricia Blends", sig: "Filter Coffee", rank: 1 },
-            { area: 'Melbourne CBD', name: "Brother Baba Budan", addr: "Little Bourke St", weather_ko: "보도블록을 적시는 오후의 빗방울", weather_en: "Afternoon rain on the pavement", purpose_ko: "초현실적인 공간에서의 각성", purpose_en: "Surreal awakening in a tiny space", desc_ko: "천장에 빼곡히 매달린 의자 아래, 비밀 작전처럼 몰두하는 갈색 액체의 시간. 좁은 공간의 강렬한 밀도.", desc_en: "Intense focus under wooden chairs. The high-density tension of the tiny space creates a surreal experience.", beans: "Seven Seeds", sig: "Batch Brew", rank: 2 },
-            { area: 'Melbourne CBD', name: "Dukes Coffee Roasters", addr: "Flinders Ln", weather_ko: "옷깃을 스치는 초겨울의 차가운 바람", weather_en: "Winter's edge with a biting wind", purpose_ko: "역사적 건물에서의 고요한 휴식", purpose_en: "Quiet rest in a historic building", desc_ko: "도서관 같은 정적 속 황동빛 조명과 정교한 손놀림. 역사적 건물 안에서 즐기는 고전 영화 같은 한 장면.", desc_en: "Brass light in an old library-like silence. A rest that feels like a scene from a vintage film.", beans: "Dukes Organic", sig: "White Coffee", rank: 3 },
-            { area: 'Melbourne CBD', name: "Market Lane Coffee", addr: "Victoria St / Lonsdale St / Queen St / South Melbourne", weather_ko: "눈부시게 투명한 토요일 오전", weather_en: "Dazzling Saturday morning", purpose_ko: "원두 본연의 선명한 빛깔", purpose_en: "Clean clarity of the bean", desc_ko: "하얀 타일 위 부서지는 햇살과 파란 로고 컵. 불순물 없는 순수한 필터 커피가 만드는 투명하고 선명한 아침.", desc_en: "Sunlight on white tiles and a blue-logo cup. A transparent morning frame filled with strictly clean filter coffee.", beans: "Seasonal Single Origin", sig: "Pour Over Filter", rank: 4 },
-            { area: 'Melbourne CBD', name: "Axil Coffee Roasters", addr: "Flinders Ln / Bourke St / Elizabeth St / Exhibition St / Galleria Melbourne", weather_ko: "도시 시계가 빠르게 돌아가는 아침", weather_en: "Busy weekday morning pulse", purpose_ko: "완벽하게 조율된 카페인", purpose_en: "Perfectly tuned caffeine", desc_ko: "탬핑 소리가 도시의 역동성을 완성한다. 도시 시계와 완벽하게 싱크를 맞추는 세련된 엔진 같은 공간.", desc_en: "Metronome tamping captures the urban energy. A sophisticated engine synced perfectly with the city pulse.", beans: "Axil Roasters", sig: "Espresso", rank: 5 },
-            { area: 'Melbourne CBD', name: "Code Black Coffee", addr: "Flinders Ln / Collins St / Little Collins St", weather_ko: "집중력이 필요한 묵직한 오후", weather_en: "Heavy afternoon for focus", purpose_ko: "진지한 커피 탐구와 원두 구매", purpose_en: "Intellectual coffee study", desc_ko: "에스프레소 머신의 조명과 기밀 문서 같은 원두 패키지. 차갑고 매혹적인 분위기 속에서의 지적인 탐구.", desc_en: "Espresso machine glow and bean packages like classified documents. A chic, intellectual tension for coffee lovers.", beans: "Black Knight Blends", sig: "Espresso", rank: 6 },
-            { area: 'Melbourne CBD', name: "Industry Beans", addr: "Little Collins St", weather_ko: "미래적 영감이 필요한 맑은 날", weather_en: "Clear day for futuristic ideas", purpose_ko: "커피 추출의 과학적 미학", purpose_en: "Scientific brewing aesthetic", desc_ko: "모든 기구는 투명하고 선은 날카롭다. 미래 과학자가 커피를 내려주는 듯한 세련된 실험실의 무드.", desc_en: "Transparent tools and sharp lines. A sophisticated mood where it feels like a scientist serves your brew.", beans: "Industry Blends", sig: "Fitzroy Iced Coffee", rank: 7 },
-            { area: 'Melbourne CBD', name: "in. btwn", addr: "Djeembana Walk", weather_ko: "계절의 변화가 공기에 머물 때", weather_en: "When seasonal shifts linger", purpose_ko: "지금 이 순간만 파는 특별한 메뉴", purpose_en: "A menu strictly for now", desc_ko: "창밖 온도에 맞춰 설계된 원두의 풍미. 오직 지금 이 순간에만 마실 수 있는 계절의 조각을 고스란히 담다.", desc_en: "Bean flavors designed for the current temperature. Capturing a seasonal puzzle piece available only for this moment.", beans: "Specialty Selection", sig: "Seasonal Edition", rank: 8 },
-            { area: 'Melbourne CBD', name: "Little Rouge", addr: "Drewery Ln", weather_ko: "숨겨진 골목에 오후 볕이 들 때", weather_en: "Afternoon sun in hidden alleys", purpose_ko: "나만 알고 싶은 도심 속 비밀", purpose_en: "A hidden city secret", desc_ko: "파란 문 너머 붉은 벽돌과 말차 라떼의 초록빛. 도심 소음이 사라진 아늑한 아지트에서 누리는 채도.", desc_en: "Red brick beyond blue doors and cinematic matcha green. A hideout where city noise magically vanishes.", beans: "Guest Roasters", sig: "Matcha Latte", rank: 9 },
-            { area: 'Melbourne CBD', name: "Project Zero Coffee", addr: "King St / Flinders St", weather_ko: "모든 것을 비우고 싶은 이른 아침", weather_en: "Early morning to empty mind", purpose_ko: "불필요한 감정을 덜어내는 시간", purpose_en: "Time to shed extra emotions", desc_ko: "텅 빈 갤러리 속 낮은 그림자와 커피 잔. 정물의 주인공이 된 커피가 복잡한 머릿속을 고요하게 비워낸다.", desc_en: "Low shadows in an empty gallery. A single cup becomes the still-life hero, completing the perfect silence.", beans: "Eco Blends", sig: "Flat White", rank: 10 },
-            { area: 'Melbourne CBD', name: "BENCH COFFEE CO.", addr: "Little Collins St", weather_ko: "바람 한 점 없는 고요한 오후", weather_en: "Still, windless afternoon", purpose_ko: "공간의 구조미가 주는 심리적 안정", purpose_en: "Psychological rest in geometry", desc_ko: "직선이 지배하는 미니멀리즘의 정점. 회색 콘크리트와 따뜻한 커피의 대비가 대담한 추상화처럼 다가온다.", desc_en: "Minimalism ruled by straight lines. The bold contrast of concrete and warm coffee hits like abstract art.", beans: "Bench Roasters", sig: "Batch Brew", rank: 11 },
-            { area: 'Melbourne CBD', name: "The League of Honest Coffee", addr: "Little Lonsdale St", weather_ko: "땀방울 맺히는 화창한 목요일", weather_en: "Sweaty, sunny Thursday", purpose_ko: "기교 없는 순수한 본질", purpose_en: "Pure essence without fluff", desc_ko: "인더스트리얼 공간 속 정직하게 내리는 플랫 화이트. 일상의 무게를 덜어주는 가장 확실한 안도감의 미학.", desc_en: "Honestly brewed standard taste in a raw space. The relief of a standard flat white at an unadorned bar.", beans: "Padre Coffee", sig: "Magic", rank: 12 },
-            { area: 'Melbourne CBD', name: "OKO Cafe", addr: "A’ Beckett St / Little Collins St", weather_ko: "정적이 필요한 산란한 마음", weather_en: "When needing absolute silence", purpose_ko: "소음으로부터의 완벽한 격리", purpose_en: "Perfect isolation from noise", desc_ko: "다도 의식 같은 정중한 움직임과 단정한 나무 결. 도심 한복판에서 완벽한 격리와 평온을 꿈꾸게 하는 공간.", desc_en: "Tea ceremony-like moves and Japanese aesthetics. A sanctuary that perfectly isolates you from urban chaos.", beans: "Specialty Selection", sig: "Hand Drip Coffee", rank: 13 },
-            { area: 'Melbourne CBD', name: "Brick Lane Melbourne", addr: "Guildford Ln", weather_ko: "식물들이 빗방울을 머금은 날", weather_en: "Damp day with raining plants", purpose_ko: "골목길 정원에서 누리는 여유", purpose_en: "Leisure in an alley garden", desc_ko: "붉은 벽돌을 타고 내려오는 초록 넝쿨의 낭만. 나뭇잎 그림자가 어른거리는 평화로운 정원에서의 한 잔.", desc_en: "Green vines cascading down red brick. A peaceful cup in a hidden garden where leaf shadows dance.", beans: "House Roasts", sig: "Latte", rank: 14 },
-            { area: 'Melbourne CBD', name: "Overlay Coffee", addr: "Little Lonsdale St", weather_ko: "도시 공기가 차갑게 느껴질 때", weather_en: "When the city air feels cold", purpose_ko: "감각적인 공간 디자인 체험", purpose_en: "Experience of sensible design", desc_ko: "반투명 유리 사이 겹겹이 쌓인 빛과 현대적 텍스처. 당신의 커피 타임이 세련된 화보가 되는 감각적 순간.", desc_en: "Layers of light through translucent glass. Modern textures where every sip feels like a trendy pictorial.", beans: "Specialty Single", sig: "Peanut Cream Latte", rank: 15 },
-            { area: 'Melbourne CBD', name: "Vacation Coffee", addr: "Exhibition St", weather_ko: "여름 휴가를 꿈꾸는 화창한 오후", weather_en: "Afternoon dreaming of vacation", purpose_ko: "기분 전환을 위한 밝은 에너지", purpose_en: "Bright energy for a mood change", desc_ko: "분홍빛 벽과 연한 파란색 포인트가 주는 산뜻함. 휴양지 카페에 앉아 있는 듯한 가벼운 설렘의 프레임.", desc_en: "Pink walls and pastel blue accents. A frame filled with the light thrill of a vacation resort.", beans: "Vacation Roasts", sig: "Batch Brew", rank: 16 },
-            { area: 'Melbourne CBD', name: "Hikari", addr: "Swanston St", weather_ko: "안개가 낮게 깔린 이른 아침", weather_en: "Early morning with low fog", purpose_ko: "투명하고 맑은 드립의 정수", purpose_en: "Essence of transparent drip", desc_ko: "정적 속에 한 방울씩 서버에 채워지는 경건함. 빛과 그림자의 유희 속에서 투명하게 빛나는 필터 커피.", desc_en: "A reverent rhythm as drops fill the server in silence. Clear filter coffee in the play of light and shadow.", beans: "Specialty Blends", sig: "Pour Over Filter", rank: 17 },
-            { area: 'Melbourne CBD', name: "Marker", addr: "Little Bourke St", weather_ko: "창의적 생각이 필요한 맑은 날", weather_en: "Clear day for creative thoughts", purpose_ko: "공간 구조미와 커피의 밸런스", purpose_en: "Balance of geometry and coffee", desc_ko: "직선 카운터와 기하학적 가구가 주는 시각적 쾌감. 잘 설계된 공간이 머릿속 지도를 새로 그려주는 영감.", desc_en: "Linear design and geometric furniture giving visual pleasure. A cup here redraws the creative map.", beans: "Specialty Selection", sig: "Batch Brew", rank: 18 },
-            { area: 'Melbourne CBD', name: "Pinned", addr: "Rankins Ln", weather_ko: "지도 없이 우연히 골목을 헤맬 때", weather_en: "Wandering alleys by chance", purpose_ko: "나만 아는 비밀스러운 아지트", purpose_en: "A secret spot only I know", desc_ko: "그래피티 골목 끝 숨겨진 입구와 아늑한 조명. 소음이 사라진 공간에서 오직 커피 향만이 당신을 반긴다.", desc_en: "Hidden entrance behind graffiti with cozy lighting. Only the coffee aroma greets you as noise vanishes.", beans: "House Specialty", sig: "White Coffee", rank: 19 },
-            { area: 'Melbourne CBD', name: "Puzzle Coffee", addr: "Swanston St / Melbourne Central", weather_ko: "도심 스케줄 사이의 짧은 틈", weather_en: "Short gap between schedules", purpose_ko: "도심 속 감각적인 쉼표", purpose_en: "Sensible comma in the city", desc_ko: "쇼핑몰 중심에서 찾은 미니멀한 안식처. 세련된 인테리어가 바쁜 하루 중 가장 감각적인 쉼표를 준다.", desc_en: "A futuristic refuge amidst the bustling mall. Sustainable design provides a moment of calm.", beans: "Puzzle Blends", sig: "Black Sesame Latte", rank: 20 },
-            { area: 'Melbourne CBD', name: "Fabian", addr: "Lonsdale St / Little Collins St", weather_ko: "클래식 영화의 주인공이 되는 날", weather_en: "Being a classic film protagonist", purpose_ko: "유행을 타지 않는 단단한 맛", purpose_en: "Solid taste defying trends", desc_ko: "어두운 목재와 가죽 향기, 두툼한 도자기 잔. 묵직하고 신중하게 아침을 열어주는 장중한 영화의 한 컷.", desc_en: "Dark timber and rich thick ceramic cups. A heavy morning opening in a grand movie cut.", beans: "Traditional Blends", sig: "Flat White", rank: 21 },
-            { area: 'Melbourne CBD', name: "Krimper Cafe", addr: "Guildford Ln", weather_ko: "비 오는 날의 앤티크한 정취", weather_en: "Rainy day antique mood", purpose_ko: "역사가 숨쉬는 거대한 압도감", purpose_en: "Historic presence of grand space", desc_ko: "옛 제재소의 거친 질감과 영화적 조명. 과거의 흔적들이 커피 향과 섞이며 웅장한 공간의 힘을 전한다.", desc_en: "Converted sawmill behind heavy wood doors. Traces of the past mixing with coffee aromas.", beans: "Proud Mary", sig: "House White", rank: 22 },
-            { area: 'Melbourne CBD', name: "Shortshop Coffee & Donuts", addr: "Sutherland St", weather_ko: "달콤한 위로가 절실한 오후", weather_en: "Afternoon for sweet comfort", purpose_ko: "도넛과 블랙커피의 이중주", purpose_en: "The perfect black & donut duo", desc_ko: "하얀 타일 위 정갈한 도넛과 씁쓸한 커피. 기름진 달콤함과 카페인이 만드는 본능적인 쾌락의 장면.", desc_en: "Neat donuts and bitter coffee. A scene of pleasure where sugary sweetness and caffeine collide.", beans: "Selected Specialty", sig: "Seasonal Batch", rank: 23 },
-            { area: 'Melbourne CBD', name: "Hopetoun Tea Rooms est. 1892", addr: "Bourke St", weather_ko: "우아함이 필요한 특별한 날", weather_en: "Special day requiring elegance", purpose_ko: "가장 오래된 전통의 미학", purpose_en: "The oldest traditional aesthetics", desc_ko: "빅토리아 시대 벽지와 화려한 쇼케이스. 19세기 귀족이 된 듯 즐기는 우아하고 화려한 시대극의 한 컷.", desc_en: "Victorian wallpaper and grand cakes. A period drama cut where you feel like 19th-century royalty over tea.", beans: "House Tea Selection", sig: "Classic High Tea", rank: 24 },
-            { area: 'Melbourne CBD', name: "REGULARS", addr: "Lonsdale St", weather_ko: "익숙한 평온함이 그리운 날", weather_en: "Longing for familiar calm", purpose_ko: "변치 않는 맛과 편안한 대화", purpose_en: "Unchanging taste and hospitality", desc_ko: "이름을 부르는 환대와 매일 같은 자리의 안도감. 도심 생활의 버팀목이 되어주는 다정한 장면.", desc_en: "Baristas calling your name. The relief of the same spot every day, becoming a sturdy support for city life.", beans: "House Blends", sig: "Magic", rank: 25 },
-            { area: 'Melbourne CBD', name: "trbl. Coffee", addr: "Bourke St / Little Collins St", weather_ko: "강렬한 각성이 필요한 아침", weather_en: "Morning for intense awakening", purpose_ko: "빠르고 강력하게 충전되는 카페인", purpose_en: "Quick, powerful caffeine recharge", desc_ko: "좁은 공간의 비트 있는 음악과 기민한 바리스타. 다시 거리로 나설 때 당신의 걸음걸이에 리듬이 생긴다.", desc_en: "Upbeat music and nimble barista energy. Adding a rhythm to your stride as you hit the street.", beans: "Specialty Selected", sig: "Strong White Latte", rank: 26 },
-            { area: 'Melbourne CBD', name: "Supernova coffee", addr: "Little Collins St", weather_ko: "폭발적인 영감이 필요한 오후", weather_en: "Afternoon for explosive inspiration", purpose_ko: "커피 트렌드의 최전선", purpose_en: "Front line of coffee trends", desc_ko: "다른 행성에 도착한 듯한 금속 질감과 조명. 미각을 깨우는 우주적인 샷이 일상에 영감을 던진다.", desc_en: "Planet-like metallic textures and intense lighting. A космический shot waking up your palate.", beans: "Supernova Blends", sig: "Sparkling Black", rank: 27 },
-            { area: 'Melbourne CBD', name: "Tori’s", addr: "Elizabeth St / Little Lonsdale St", weather_ko: "포근한 위로가 필요한 추운 날", weather_en: "Cold day for cozy comfort", purpose_ko: "마음을 녹이는 수제 디저트", purpose_en: "Heart-melting homemade sweets", desc_ko: "숲속 오두막에 초대받은 듯한 안도감과 빈티지 컵. 갓 구운 빵 냄새가 온 몸을 감싸는 다정한 장면.", desc_en: "Friendly vintage kitchen like a cabin. Freshly baked scents wrapping around you for comfort.", beans: "House Specialty", sig: "White Coffee", rank: 28 },
-            { area: 'Melbourne CBD', name: "Spyglass Coffee", addr: "Queen St / Bourke St", weather_ko: "도시를 관찰하고 싶은 비 오는 날", weather_en: "Rainy day for city observation", purpose_ko: "더티 커피의 진한 매력", purpose_en: "Rich charm of 'Dirty Coffee'", desc_ko: "유리창 너머 흐르는 우산 행렬과 흘러내리는 크림. 비 내리는 풍경을 닮은 잔을 들고 세상을 엿본다.", desc_en: "Cream textures matching the rainy parade outside. A small observatory to watch the world through glass.", beans: "House Selection", sig: "The Dirty Coffee", rank: 29 },
-            { area: 'Melbourne CBD', name: "Inglewood Coffee Roasters", addr: "King St / Flinders St", weather_ko: "정석적인 맛이 그리울 때", weather_en: "Crave for standard coffee taste", purpose_ko: "기본에 충실한 단단한 품질", purpose_en: "Solid quality faithful to basics", desc_ko: "불필요한 장식 없이 완벽한 추출에만 집중하는 정직한 리얼리즘. 신뢰감 있는 바리스타가 내주는 가장 커피다운 한 잔.", desc_en: "Honest realism focused purely on perfect extraction. The most 'coffee-like' cup served by reliable baristas.", beans: "Inglewood Roasts", sig: "Latte", rank: 30 },
-
-            // --- Carlton ---
-            { area: 'Carlton', name: "Good Measure", addr: "Lygon St", weather_ko: "낮과 밤의 경계가 모호해지는 시간", weather_en: "Blurred day and night boundaries", purpose_ko: "카페인과 알코올의 공존", purpose_en: "Caffeine and alcohol coexistence", desc_ko: "낮의 에스프레소가 밤의 칵테일로 변하는 바이닐 사운드 속의 낭만. 도심 로맨틱한 전환의 순간.", desc_en: "Espresso turning to spirits. Vinyl sound and dim lights for a perfect urban romantic transition.", beans: "Rotating Guest", sig: "Mont Blanc Coffee", rank: 1 },
+            { area: 'Melbourne CBD', name: "Patricia Coffee Brewers Melbourne", addr: "Little Bourke St", ig: "https://www.instagram.com/pcoffeebrewers?igsh=b3BxamRmdDUwM2g=", weather_ko: "흐린 구름 사이 정갈한 햇살", roaster: "Patricia Blends", sig: "Filter Coffee", rank: 1, desc_ko: "노신사와 바리스타의 정중한 눈인사. 도심의 소음을 지워버리는 가장 정적인 오프닝이자 우아한 아침의 시작." },
+            { area: 'Melbourne CBD', name: "Brother Baba Budan", addr: "Little Bourke St", ig: "brotherbababudan", weather_ko: "보도블록을 적시는 오후의 빗방울", roaster: "Seven Seeds", sig: "Batch Brew", rank: 2, desc_ko: "천장에 빼곡히 매달린 의자 아래, 비밀 작전처럼 몰두하는 갈색 액체의 시간. 좁은 공간의 강렬한 밀도." },
+            { area: 'Melbourne CBD', name: "Dukes Coffee Roasters", addr: "Flinders Ln", ig: "dukes_coffee", weather_ko: "옷깃을 스치는 초겨울의 차가운 바람", roaster: "Dukes Organic", sig: "White Coffee", rank: 3, desc_ko: "도서관 같은 정적 속 황동빛 조명. 역사적 건물 안에서 즐기는 고전 영화 같은 장면." },
+            { area: 'Melbourne CBD', name: "Market Lane Coffee", addr: "Victoria St / Lonsdale St / Queen St / South Melbourne", ig: "marketlane", weather_ko: "눈부시게 투명한 토요일 오전", roaster: "Seasonal Single Origin", sig: "Pour Over Filter", rank: 4, desc_ko: "하얀 타일 위 부서지는 햇살과 파란 로고 컵. 불순물 없는 순수한 필터 커피가 만드는 투명하고 선명한 아침." },
+            { area: 'Melbourne CBD', name: "Axil Coffee Roasters", addr: "Flinders Lane / Bourke St / Elizabeth St / Exhibition St / Galleria Melbourne", ig: "axilcoffeeroasters", weather_ko: "도시 시계가 빠르게 돌아가는 아침", roaster: "Axil Roasters", sig: "Espresso", rank: 5, desc_ko: "탬핑 소리가 도시의 역동성을 완성한다. 세련된 엔진 같은 공간." },
+            { area: 'Melbourne CBD', name: "Code Black Coffee", addr: "Flinders Ln / Collins St / Little Collins St / South Melbourne / North Melbourne", ig: "codeblackcoffee", weather_ko: "집중력이 필요한 묵직한 오후", roaster: "Black Knight Blends", sig: "Espresso", rank: 6, desc_ko: "기밀 문서 같은 원두 패키지. 차갑고 매혹적인 분위기 속에서의 지적인 탐구." },
+            { area: 'Melbourne CBD', name: "Industry Beans", addr: "Little Collins St / Fitzroy", ig: "industrybeans", weather_ko: "미래적 영감이 필요한 맑은 날", roaster: "Industry Blends", sig: "Fitzroy Iced Coffee", rank: 7, desc_ko: "투명하고 날카로운 선. 미래 과학자가 커피를 내려주는 듯한 세련된 실험실의 무드." },
+            { area: 'Melbourne CBD', name: "Little Rouge", addr: "Drewery Ln", ig: "littlerouge", weather_ko: "숨겨진 골목에 오후 볕이 들 때", roaster: "Guest Roasters", sig: "Matcha Latte", rank: 8, desc_ko: "파란 문 너머 붉은 벽돌과 말차 라떼의 초록빛. 도심 소음이 사라진 아늑한 아지트." },
+            { area: 'Melbourne CBD', name: "Project Zero Coffee", addr: "King St / Flinders St", ig: "projectzerocoffee", weather_ko: "모든 것을 비우고 싶은 이른 아침", roaster: "Eco Blends", sig: "Flat White", rank: 9, desc_ko: "텅 빈 갤러리 속 낮은 그림자와 커피 잔. 정물의 주인공이 된 커피가 복잡한 머릿속을 고요하게 비워낸다." },
+            { area: 'Melbourne CBD', name: "BENCH COFFEE CO.", addr: "Little Collins St", ig: "benchcoffee.co", weather_ko: "바람 한 점 없는 고요한 오후", roaster: "Bench Roasters", sig: "Batch Brew", rank: 10, desc_ko: "직선이 지배하는 미니멀리즘의 정점. 회색 콘크리트와 따뜻한 커피의 대비." },
+            { area: 'Melbourne CBD', name: "The League of Honest Coffee", addr: "Little Lonsdale St", ig: "leagueofhonestcoffee", weather_ko: "땀방울 맺히는 화창한 목요일", roaster: "Padre Coffee", sig: "Magic", rank: 11, desc_ko: "인더스트리얼 공간 속 정직하게 내리는 플랫 화이트. 일상의 무게를 덜어주는 안도감의 미학." },
+            { area: 'Melbourne CBD', name: "OKO Cafe", addr: "A’ Beckett St / CBD", ig: "okocafe", weather_ko: "정적이 필요한 산란한 마음", roaster: "Specialty Selection", sig: "Hand Drip Coffee", rank: 12, desc_ko: "다도 의식 같은 정중한 움직임과 단정한 나무 결. 도심 속 완벽한 격리와 평온." },
+            { area: 'Melbourne CBD', name: "Brick Lane Melbourne", addr: "Guildford Ln", ig: "bricklanemelb", weather_ko: "식물들이 빗방울을 머금은 날", roaster: "House Roasts", sig: "Latte", rank: 13, desc_ko: "붉은 벽돌을 타고 내려오는 초록 넝쿨의 낭만. 나뭇잎 그림자가 어른거리는 평화로운 정원." },
+            { area: 'Melbourne CBD', name: "Overlay Coffee", addr: "Little Lonsdale St", ig: "overlay.coffee", weather_ko: "도시 공기가 차갑게 느껴질 때", roaster: "Specialty Single", sig: "Peanut Cream Latte", rank: 14, desc_ko: "반투명 유리 사이 겹겹이 쌓인 빛. 당신의 커피 타임이 세련된 화보가 되는 감각적 순간." },
+            { area: 'Melbourne CBD', name: "Vacation Coffee", addr: "Exhibition St", ig: "vacationcoffee", weather_ko: "여름 휴가를 꿈꾸는 화창한 오후", roaster: "Vacation Roasts", sig: "Batch Brew", rank: 15, desc_ko: "분홍빛 벽과 연한 파란색 포인트. 휴양지 카페에 앉아 있는 듯한 가벼운 설렘의 프레임." },
+            { area: 'Melbourne CBD', name: "Hikari", addr: "Swanston St", ig: "hikari_melbourne", weather_ko: "안개가 낮게 깔린 이른 아침", roaster: "Specialty Blends", sig: "Pour Over Filter", rank: 16, desc_ko: "정적 속에 한 방울씩 서버에 채워지는 경건함. 빛과 그림자의 유희 속 투명한 필터 커피." },
+            { area: 'Melbourne CBD', name: "Marker", addr: "Little Bourke St / Richmond", ig: "marker_melbourne", weather_ko: "창의적 생각이 필요한 맑은 날", roaster: "Specialty Selection", sig: "Batch Brew", rank: 17, desc_ko: "직선 카운터와 기하학적 가구의 시각적 쾌감. 잘 설계된 공간이 주는 영감." },
+            { area: 'Melbourne CBD', name: "Pinned", addr: "Rankins Ln", ig: "pinned_coffee", weather_ko: "우연히 골목을 헤맬 때", roaster: "House Specialty", sig: "White Coffee", rank: 18, desc_ko: "그래피티 골목 끝 숨겨진 입구와 아늑한 조명. 소음이 사라진 공간에서 만나는 커피 향." },
+            { area: 'Melbourne CBD', name: "Puzzle Coffee", addr: "Swanston St / Melbourne Central", ig: "puzzlecoffee", weather_ko: "도심 스케줄 사이의 짧은 틈", roaster: "Puzzle Blends", sig: "Black Sesame Latte", rank: 19, desc_ko: "쇼핑몰 중심에서 찾은 미니멀한 안식처. 세련된 인테리어가 주는 감각적인 쉼표." },
+            { area: 'Melbourne CBD', name: "Fabian", addr: "Lonsdale St / Little Collins St / CBD", ig: "fabian_melb", weather_ko: "클래식 영화의 주인공이 되는 날", roaster: "Traditional Blends", sig: "Flat White", rank: 20, desc_ko: "어두운 목재와 가죽 향기, 두툼한 도자기 잔. 묵직하고 신중하게 아침을 여는 장면." },
+            { area: 'Melbourne CBD', name: "Krimper Cafe", addr: "Guildford Ln", ig: "krimpercafe", weather_ko: "비 오는 날의 앤티크한 정취", roaster: "Proud Mary", sig: "House White", rank: 21, desc_ko: "옛 제재소의 거친 질감과 영화적 조명. 과거의 흔적들이 커피 향과 섞이는 웅장함." },
+            { area: 'Melbourne CBD', name: "Shortshop Coffee & Donuts", addr: "Sutherland St", ig: "shortstopmelbourne", weather_ko: "달콤한 위로가 절실한 오후", roaster: "Selected Specialty", sig: "Seasonal Batch", rank: 22, desc_ko: "하얀 타일 위 정갈한 도넛과 씁쓸한 커피. 기름진 달콤함과 카페인의 본능적 쾌락." },
+            { area: 'Melbourne CBD', name: "Hopetoun Tea Rooms est. 1892", addr: "Bourke St", ig: "hopetountearooms", weather_ko: "우아함이 필요한 특별한 날", roaster: "House Tea Selection", sig: "Classic High Tea", rank: 23, desc_ko: "빅토리아 시대 벽지와 화려한 쇼케이스. 19세기 귀족이 된 듯 즐기는 우아한 장면." },
+            { area: 'Melbourne CBD', name: "REGULARS", addr: "Lonsdale St / CBD", ig: "regulars_melbourne", weather_ko: "익숙한 평온함이 그리운 날", roaster: "House Blends", sig: "Magic", rank: 24, desc_ko: "이름을 부르는 환대와 매일 같은 자리의 안도감. 도심 생활의 버팀목이 되는 장면." },
+            { area: 'Melbourne CBD', name: "trbl. Coffee", addr: "Bourke St / CBD", ig: "trbl.coffee", weather_ko: "강렬한 각성이 필요한 아침", roaster: "Specialty Selected", sig: "Strong White Latte", rank: 25, desc_ko: "좁은 공간의 비트 있는 음악과 기민한 바리스타. 당신의 걸음걸이에 리듬을 주는 공간." },
+            { area: 'Melbourne CBD', name: "Supernova coffee", addr: "Little Collins St / CBD", ig: "supernovacoffee", weather_ko: "폭발적인 영감이 필요한 오후", roaster: "Supernova Blends", sig: "Sparkling Black", rank: 26, desc_ko: "다른 행성에 도착한 듯한 금속 질감과 조명. 우주적인 샷이 일상에 영감을 던진다." },
+            { area: 'Melbourne CBD', name: "Tori’s", addr: "Elizabeth St / CBD", ig: "toris.melbourne", weather_ko: "포근한 위로가 필요한 추운 날", roaster: "House Specialty", sig: "White Coffee", rank: 27, desc_ko: "숲속 오두막에 초대받은 듯한 안도감. 갓 구운 빵 냄새가 온 몸을 감싸는 다정한 장면." },
+            { area: 'Melbourne CBD', name: "Spyglass Coffee", addr: "Queen St / Bourke St / CBD", ig: "spyglasscoffee", weather_ko: "도시를 관찰하고 싶은 비 오는 날", roaster: "House Selection", sig: "The Dirty Coffee", rank: 28, desc_ko: "유리창 너머 흐르는 우산 행렬과 흘러내리는 크림. 비 내리는 풍경을 닮은 한 잔." },
+            { area: 'Melbourne CBD', name: "Inglewood Coffee Roasters", addr: "King St / CBD", ig: "inglewoodcoffeeroasters", weather_ko: "정석적인 맛이 그리울 때", roaster: "Inglewood Roasts", sig: "Latte", rank: 29, desc_ko: "완벽한 추출에만 집중하는 정직한 리얼리즘. 신뢰감 있는 바리스타가 내주는 가장 커피다운 잔." },
+            { area: 'Melbourne CBD', name: "in. btwn", addr: "Djeembana Walk", ig: "in.btwn_melbourne", weather_ko: "계절의 변화가 공기에 머물 때", roaster: "Specialty Selection", sig: "Seasonal Edition", rank: 30, desc_ko: "창밖 온도에 맞춰 설계된 원두의 풍미. 오직 지금 이 순간에만 마실 수 있는 계절의 조각." },
 
             // --- North Melbourne ---
-            { area: 'North Melbourne', name: "Path Melbourne", addr: "Villiers St", weather_ko: "안개 낀 고요한 새벽", weather_en: "Quiet morning with low fog", purpose_ko: "커피에 대한 깊은 몰입과 사색", purpose_en: "Deep immersion in coffee", desc_ko: "대화가 생략된 정중한 정적. 원두를 다루는 소리만이 공명하며 커피가 하나의 예술이 되는 과정을 본다.", desc_en: "Polite silence where talk is omitted. Watching coffee become art through the sound of handling beans.", beans: "In-house Roasts", sig: "Single Origin Filter", rank: 1 },
-            { area: 'North Melbourne', name: "Rosso Coffee Experience", addr: "Dryburgh St", weather_ko: "취향을 실험하고 싶은 날", weather_en: "Day to experiment with tastes", purpose_ko: "세 가지 블렌드의 입체적 선택", purpose_en: "Three blends for layered choices", desc_ko: "Governor, Commuter, Bohemian의 페르소나. 세 가지 블렌드가 당신의 오늘을 정의하는 커피 실험실.", desc_en: "Three distinct personas for your day. An experimental laboratory of characterful espresso blends.", beans: "Governor / Commuter / Bohemian", sig: "Espresso Flight", rank: 2 },
-            { area: 'North Melbourne', name: "INI Studio", addr: "Queensberry St", weather_ko: "디자인 영감이 필요한 오전", weather_en: "Morning for design inspiration", purpose_ko: "정교한 가구와 커피의 합일", purpose_en: "Union of furniture and coffee", desc_ko: "디자인 스튜디오의 절제된 미학. 가구의 선과 커피 잔의 곡선이 완벽하게 조화를 이루는 심미적인 휴식.", desc_en: "Resting among well-refined objects. Aesthetics of space and curves creating an aesthetic frame.", beans: "Specialty Selection", sig: "Hand Drip Filter", rank: 3 },
-            { area: 'North Melbourne / Prahran', name: "Tone Coffee Roasters", addr: "Queensberry St / Greville St", weather_ko: "로컬의 활기를 느끼는 토요일", weather_en: "Saturday local vitality", purpose_ko: "동네 로스터리 특유의 친근함", purpose_en: "Friendliness of a local roastery", desc_ko: "로스팅 머신의 열기와 이웃들의 인사가 섞인 장면. 갓 볶은 원두 향기가 온 동네를 감싸는 로컬 무비.", desc_en: "Peaceful local scene with neighborly greetings. Fresh aromas wrapping the entire town like a warm film.", beans: "Tone Roasters", sig: "Tiger Bomb Espresso", rank: 4 },
-            { area: 'North Melbourne', name: "Code Black Coffee", addr: "Howard St", weather_ko: "진지한 커피 탐구가 필요한 오후", weather_en: "Afternoon for serious study", purpose_ko: "전문 생산 현장 체험", purpose_en: "Professional production experience", desc_ko: "거대한 로스팅 공장에서 마주하는 블랙 인더스트리얼의 웅장함. 커피 원두의 본질을 정면으로 본다.", desc_en: "Facing the essence of beans in a grand roasting factory. The peak of black industrial energy.", beans: "Code Black Roasts", sig: "Long Black", rank: 5 },
+            { area: 'North Melbourne', name: "Path Melbourne", addr: "Villiers St / North Melbourne", ig: "path_melbourne", weather_ko: "안개 낀 고요한 새벽", roaster: "In-house Roasts", sig: "Single Origin Filter", rank: 1, desc_ko: "대화가 생략된 정중한 정적. 원두를 다루는 소리만이 공명하며 커피가 예술이 되는 과정." },
+            { area: 'North Melbourne', name: "Rosso Coffee Experience", addr: "Dryburgh St / North Melbourne", ig: "rossocoffee", weather_ko: "취향을 실험하고 싶은 날", roaster: "Governor / Commuter / Bohemian Blends", sig: "Espresso Flight", rank: 2, desc_ko: "세 가지 블렌드(Governor, Commuter, Bohemian)가 당신의 오늘을 정의하는 커피 실험실." },
+            { area: 'North Melbourne', name: "INI Studio", addr: "Queensberry St / North Melbourne", ig: "inistudio.melbourne", weather_ko: "디자인 영감이 필요한 오전", roaster: "Specialty Selection", sig: "Hand Drip Filter", rank: 3, desc_ko: "디자인 스튜디오의 절제된 미학. 가구의 선과 커피 잔의 곡선이 조화를 이루는 휴식." },
+            { area: 'North Melbourne / Prahran', name: "Tone Coffee Roasters", addr: "Queensberry St / North Melbourne / Prahran", ig: "tone.coffee", weather_ko: "로컬의 활기를 느끼는 토요일", roaster: "Tone Roasters", sig: "Tiger Bomb Espresso", rank: 4, desc_ko: "로스팅 머신의 열기와 이웃들의 인사가 섞인 장면. 갓 볶은 원두 향기가 온 동네를 감싸는 무드." },
 
-            // --- Fitzroy & Collingwood ---
-            { area: 'Fitzroy & Collingwood', name: "Proud Mary Coffee", addr: "Oxford St", weather_ko: "에너지가 샘솟는 정오", weather_en: "Noon with raw energy", purpose_ko: "스페셜티 커피 개척자의 자부심", purpose_en: "Pioneer's pride in specialty", desc_ko: "붉은 벽돌과 오픈 키친의 소음이 활기차다. 바쁜 에너지 속에서도 커피의 자부심이 느껴지는 역동적 장면.", desc_en: "Dynamic documentary cut in the heart of Fitzroy. Open kitchen noise and the pride of specialty coffee.", beans: "Proud Mary", sig: "V60 Filter Coffee", rank: 1 },
-            { area: 'Fitzroy & Collingwood', name: "Aunty Peg’s", addr: "Wellington St", weather_ko: "본질에만 몰두하고 싶을 때", weather_en: "When immersing in essence", purpose_ko: "블랙커피의 순수함과 경건함", purpose_en: "Purity of black coffee", desc_ko: "예술 감상 같은 고요함 속에 바리스타와 나누는 원두에 대한 대화. 검은 액체의 깊은 미학.", desc_en: "Reverence of a black-only space. Watching the dark extract flow in a meditative silence.", beans: "Proud Mary Rare", sig: "Black Tasting Flight", rank: 2 },
-            { area: 'Fitzroy / Collingwood', name: "ACOFFEE", addr: "Russell St / Collingwood", weather_ko: "눈부시게 투명한 날", weather_en: "Dazzlingly clear day", purpose_ko: "미니멀리즘의 마법", purpose_en: "Magic of white minimalism", desc_ko: "순백의 화이트 큐브 속에서 완성되는 여백의 미학. 필터 커피 한 잔이 놓일 때 공간은 비로소 완전해진다.", desc_en: "Aesthetics of white space and dazzling sunlight. The frame completes only when a clear filter cup is placed.", beans: "ACOFFEE Roasters", sig: "Filter Coffee", rank: 3 },
-            { area: 'Fitzroy & Collingwood', name: "Industry Beans", addr: "Rose St", weather_ko: "혁신적인 영감이 필요한 일요일", weather_en: "Sunday for innovative ideas", purpose_ko: "거대한 커피 팩토리 체험", purpose_en: "Coffee factory in a warehouse", desc_ko: "높은 층고와 콘크리트 위로 빛이 쏟아지는 실험적인 창의성의 공간. 멜버른 특유의 공장 개조 미학.", desc_en: "Light over concrete in a grand warehouse. An experimental creative menu in a visionary industrial factory.", beans: "Industry Beans", sig: "Pourover", rank: 4 },
-
-            // --- South Melbourne & South Yarra ---
-            { area: 'South Melbourne & South Yarra', name: "ST. ALi Coffee Roasters", addr: "Yarra Pl", weather_ko: "자유로운 반항아 같은 아침", weather_en: "Sunny morning like a rebel", purpose_ko: "인더스트리얼 감성의 정수", purpose_en: "Essence of industrial vibes", desc_ko: "그래피티 가득한 골목, 창고 안에서 폭발하는 개척자들의 에너지. 멜버른 커피 혁명의 발원지다운 활기.", desc_en: "Pioneer energy in a warehouse. Freedom and rebellion in every drop of the Melb coffee revolution.", beans: "ST. ALi", sig: "Orthodox White", rank: 1 },
-            { area: 'South Melbourne & South Yarra', name: "Campos Coffee", addr: "South Yarra", weather_ko: "품격 있는 일요일의 여유", weather_en: "Leisurely Sunday with class", purpose_ko: "세련된 완벽함", purpose_en: "Sleek consistent perfection", desc_ko: "잘 차려입은 로컬들 사이 초록색 로고가 주는 일관된 완벽함. 언제나 신뢰할 수 있는 단단한 품질.", desc_en: "Green logo reliability. Consistent perfection under the Sunday sun for the sleek locals of South Yarra.", beans: "Campos Superior", sig: "Flat White", rank: 3 },
-
-            // --- Brunswick ---
-            { area: 'Brunswick', name: "ONA Coffee", addr: "Ovens St", weather_ko: "커피의 한계를 시험하고 싶은 날", weather_en: "Day to test coffee's limits", purpose_ko: "최첨단 과학의 경이", purpose_en: "Hub of cutting-edge science", desc_ko: "우주 정거장 바에서 시작되는 새로운 미각 탐험. 냉동 원두가 선사하는 멜버른에서 가장 미래적인 한 잔.", desc_en: "Frozen bean exploration in a space-station bar. The peak of modern coffee science in your cup.", beans: "ONA Specialty", sig: "Raspberry Candy", rank: 1 },
-            { area: 'Brunswick', name: "Wide Open Road Coffee Roasters", addr: "Barkly St", weather_ko: "자유가 필요한 오후", weather_en: "Afternoon needing freedom", purpose_ko: "예술적 영혼과 해방감", purpose_en: "Artistic soul and liberation", desc_ko: "탁 트인 시야와 예술적 감각이 어우러져 당신의 생각을 확장시키는 공간. 브런즈윅의 거친 자유를 닮은 안식처.", desc_en: "Raw walls and flair expanding your thoughts. A sanctuary reflecting Brunswick's wild freedom.", beans: "Wide Open Road", sig: "Bathysphere Blend", rank: 2 },
-            { area: 'Brunswick', name: "Disciple Roasters", addr: "Black St", weather_ko: "본질에만 집중하고 싶은 날", weather_en: "Day to focus on essence", purpose_ko: "경건한 본질", purpose_en: "Reverence for the bean", desc_ko: "장식 없는 창고, 잠재력을 끌어올리는 장인의 손길이 남기는 여운. 원두 그 자체에만 집중하는 숭고한 시간.", desc_en: "No-nonsense roasting sanctuary. A craftsman focused purely on the potential of the bean.", beans: "Disciple Roasts", sig: "Single Origin Filter", rank: 3 },
-
-            // --- Hawthorn ---
-            { area: 'Hawthorn', name: "MORE COFFEE MELBOURNE", addr: "Hawthorn", weather_ko: "교외의 나른한 낮", weather_en: "Lazy noon in suburbs", purpose_ko: "동네 쉼터의 편안함", purpose_en: "Neighborhood shelter comfort", desc_ko: "햇살 긴 창가, 부드러운 우유 거품 라떼와 함께하는 깊은 휴식. 소란스럽지 않은 동네 리듬의 평화.", desc_en: "Long sunlight and soft foam latte. A peaceful cut following the town's quiet and lazy rhythm.", beans: "Selected Specialty", sig: "Signature Latte", rank: 1 }
+            // --- Other Areas ---
+            { area: 'Fitzroy & Collingwood', name: "Proud Mary Coffee", addr: "Oxford St / Collingwood", ig: "proudmarycoffee", weather_ko: "에너지가 샘솟는 정오", roaster: "Proud Mary", sig: "V60 Filter Coffee", rank: 1, desc_ko: "붉은 벽돌과 오픈 키친의 소음이 활기차다. 바쁜 에너지 속 커피의 자부심이 느껴지는 장면." },
+            { area: 'Fitzroy & Collingwood', name: "Aunty Peg’s", addr: "Wellington St / Collingwood", ig: "proudmarycoffee", weather_ko: "본질에만 몰두하고 싶을 때", roaster: "Proud Mary Rare", sig: "Black Tasting Flight", rank: 2, desc_ko: "예술 감상 같은 고요함 속에 나누는 원두 대화. 검은 액체의 깊은 미학." },
+            { area: 'Fitzroy / Collingwood', name: "ACOFFEE", addr: "Russell St / Collingwood", ig: "acoffee_melbourne", weather_ko: "눈부시게 투명한 날", roaster: "ACOFFEE Roasters", sig: "Filter Coffee", rank: 3, desc_ko: "순백의 화이트 큐브 속에서 완성되는 여백의 미학. 필터 커피 한 잔으로 완전해지는 공간." },
+            { area: 'South Melbourne & South Yarra', name: "ST. ALi Coffee Roasters", addr: "Yarra Pl / South Melbourne", ig: "st_ali", weather_ko: "자유로운 반항아 같은 아침", roaster: "ST. ALi", sig: "Orthodox White", rank: 1, desc_ko: "그래피티 가득한 골목, 창고 안에서 폭발하는 개척자들의 에너지. 멜버른 커피 혁명의 활기." },
+            { area: 'South Melbourne & South Yarra', name: "Campos Coffee", addr: "South Yarra", ig: "camposcoffee", weather_ko: "품격 있는 일요일의 여유", roaster: "Campos Superior", sig: "Flat White", rank: 2, desc_ko: "잘 차려입은 로컬들 사이 초록색 로고의 일관된 완벽함. 언제나 신뢰할 수 있는 단단한 품질." },
+            { area: 'Brunswick', name: "ONA Coffee", addr: "Ovens St / Brunswick", ig: "onacoffee", weather_ko: "커피의 한계를 시험하고 싶은 날", roaster: "ONA Specialty", sig: "Raspberry Candy", rank: 1, desc_ko: "우주 정거장 바에서 시작되는 새로운 미각 탐험. 냉동 원두가 선사하는 미래적인 한 잔." },
+            { area: 'Brunswick', name: "Wide Open Road Coffee Roasters", addr: "Barkly St / Brunswick", ig: "wideopenroadcoffee", weather_ko: "자유가 필요한 오후", roaster: "Wide Open Road", sig: "Bathysphere Blend", rank: 2, desc_ko: "예술적 감각이 어우러져 당신의 생각을 확장시키는 공간. 브런즈윅의 거친 자유를 닮은 안식처." },
+            { area: 'Brunswick', name: "Disciple Roasters", addr: "Black St / Brunswick", ig: "discipleroasters", weather_ko: "본질에만 집중하고 싶은 날", roaster: "Disciple Roasts", sig: "Single Origin Filter", rank: 3, desc_ko: "장식 없는 창고, 잠재력을 끌어올리는 장인의 손길이 남기는 여운. 원두 자체에만 집중하는 시간." },
+            { area: 'Carlton', name: "Good Measure", addr: "Lygon St / Carlton", ig: "goodmeasure_melbourne", weather_ko: "낮과 밤의 경계가 모호해지는 시간", roaster: "Rotating Guest", sig: "Mont Blanc Coffee", rank: 1, desc_ko: "낮의 에스프레소가 밤의 칵테일로 변하는 바이닐 사운드 속의 낭만. 도심 로맨틱한 전환의 순간." },
+            { area: 'Hawthorn', name: "MORE COFFEE MELBOURNE", addr: "Hawthorn", ig: "morecoffeemelbourne", weather_ko: "교외의 나른한 낮", roaster: "Selected Specialty", sig: "Signature Latte", rank: 1, desc_ko: "햇살 긴 창가, 부드러운 우유 거품 라떼와 함께하는 깊은 휴식. 소란스럽지 않은 동네 리듬의 평화." }
         ];
 
         const areaOrder = ['Melbourne CBD', 'North Melbourne', 'North Melbourne / Prahran', 'Carlton', 'Fitzroy & Collingwood', 'Fitzroy / Collingwood', 'South Melbourne & South Yarra', 'Brunswick', 'Hawthorn'];
@@ -238,12 +209,12 @@
         function setFilter(f) { currentFilter = f; renderNav(); renderList(); }
         function handleSearch(v) { currentSearchQuery = v.toLowerCase(); renderList(); }
 
-        function triggerScene(btn, url) {
+        function triggerMap(btn, url) {
             if(btn.classList.contains('animating')) return;
             btn.classList.add('animating');
             setTimeout(() => {
                 window.open(url, '_blank');
-                setTimeout(() => { btn.classList.remove('animating'); }, 500);
+                setTimeout(() => btn.classList.remove('animating'), 300);
             }, 950);
         }
 
@@ -255,8 +226,7 @@
             const grouped = filteredData.reduce((acc, s) => { if(!acc[s.area]) acc[s.area]=[]; acc[s.area].push(s); return acc; }, {});
             
             const sortedAreas = Object.keys(grouped).sort((a,b) => {
-                let idxA = areaOrder.indexOf(a);
-                let idxB = areaOrder.indexOf(b);
+                let idxA = areaOrder.indexOf(a); let idxB = areaOrder.indexOf(b);
                 return (idxA === -1 ? 99 : idxA) - (idxB === -1 ? 99 : idxB);
             });
 
@@ -264,42 +234,53 @@
                 <div class="area-section">
                     <h3 class="area-header">${area}</h3>
                     ${grouped[area].sort((a,b)=>a.rank-b.rank).map(shop => {
-                        const googleUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(shop.name + ' ' + area + ' Melbourne')}`;
+                        const googleUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(shop.name + ' ' + area)}`;
+                        const instaUrl = shop.ig.startsWith('http') ? shop.ig : `https://www.instagram.com/${shop.ig}`;
+                        
+                        // 주소 줄바꿈 (Code Black 맞춤 처리)
+                        let formattedAddr = shop.addr;
+                        if(shop.name.includes("Code Black")) {
+                            formattedAddr = shop.addr.replace("South Melbourne", "<br>South Melbourne / North Melbourne");
+                        } else {
+                            formattedAddr = shop.addr.replace(/South Melbourne/g, '<br>South Melbourne').replace(/North Melbourne/g, '<br>North Melbourne');
+                        }
+
                         return `
                         <div class="shop-item">
-                            <div class="shop-addr">${shop.addr}</div>
+                            <div class="shop-addr">${formattedAddr}</div>
                             <h2 class="shop-name">${shop.name}</h2>
-                            <div class="shop-purpose">${isKo ? shop.purpose_ko : shop.purpose_en}</div>
-                            <div class="shop-weather">${isKo ? shop.weather_ko : shop.weather_en}</div>
+                            
+                            <div class="action-group">
+                                <span class="btn-text">Open Scene</span>
+                                <button class="icon-btn" onclick="window.open('${instaUrl}', '_blank')" title="Instagram">
+                                    <svg class="btn-icon-svg"><use href="#icon-insta"></use></svg>
+                                </button>
+                                <button class="icon-btn" onclick="triggerMap(this, '${googleUrl}')" title="Google Maps">
+                                    <div class="steam-wrap">
+                                        <svg width="20" height="20" viewBox="0 0 24 24">
+                                            <path class="steam-line" d="M8 8 Q9 4 8 0" />
+                                            <path class="steam-line" d="M12 8 Q13 4 12 0" />
+                                            <path class="steam-line" d="M16 8 Q17 4 16 0" />
+                                        </svg>
+                                    </div>
+                                    <svg class="btn-icon-svg"><use href="#icon-cup-small"></use></svg>
+                                </button>
+                            </div>
+
+                            <div class="shop-weather-box">${shop.weather_ko}</div>
                             
                             <div class="info-row">
-                                <span class="info-label">Beans</span>
-                                <div class="info-content">${shop.beans}</div>
+                                <span class="info-label">Roasters</span>
+                                <div class="info-content">${shop.roaster}</div>
                             </div>
                             <div class="info-row">
                                 <span class="info-label">Scene</span>
-                                <div class="info-content">${isKo ? shop.desc_ko : shop.desc_en}</div>
+                                <div class="info-content">${shop.desc_ko}</div>
                             </div>
                             <div class="info-row">
                                 <span class="info-label">Signature</span>
                                 <div class="info-content">${shop.sig}</div>
                             </div>
-
-                            <button class="open-scene-btn" onclick="triggerScene(this, '${googleUrl}')">
-                                <div class="cup-box">
-                                    <svg class="cup-svg" viewBox="0 0 50 50">
-                                        <g transform="translate(0, 5)">
-                                            <path class="steam-line" d="M18 5 Q20 0 18 -5" />
-                                            <path class="steam-line" d="M25 5 Q27 0 25 -5" />
-                                            <path class="steam-line" d="M32 5 Q34 0 32 -5" />
-                                        </g>
-                                        <path d="M13 41h24" />
-                                        <path d="M16 18h18v10c0 5.5-4.5 10-10 10s-10-4.5-10-10v-10z" />
-                                        <path d="M34 21c3.5 0 6 2.5 6 5s-2.5 5-6 5" />
-                                    </svg>
-                                </div>
-                                <span class="btn-text">Open Scene</span>
-                            </button>
                         </div>
                     `}).join('')}
                 </div>
