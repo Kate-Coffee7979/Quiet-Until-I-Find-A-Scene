@@ -624,8 +624,16 @@
         }
         window.addEventListener('scroll', handleScroll);
     </script>
-    <audio id="bgm" autoplay loop>
+ <audio id="bgm" autoplay loop muted>
   <source src="music/cafe.mp3" type="audio/mpeg">
 </audio>
+
+<script>
+window.addEventListener('click', () => {
+  const audio = document.getElementById('bgm');
+  audio.muted = false;
+  audio.play();
+}, { once: true });
+</script>   
 </body>
 </html>
