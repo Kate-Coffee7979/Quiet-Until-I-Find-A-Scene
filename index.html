@@ -10,6 +10,7 @@
             --oak-bg: #fcf9f5; 
             --olive-point: #5e634e; 
             --latte-point: #a68d71;
+            --espresso-deep: #4b3d30; /* 더 진한 커피색 추가 */
             --deep-charcoal: #2c2c2c; 
             --soft-white: #ffffff;
         }
@@ -38,13 +39,11 @@
         .back-btn { display: flex; align-items: center; gap: 15px; opacity: 0.5; transition: 0.4s; border: none; background: none; cursor: pointer; }
         .back-btn svg { width: 30px; height: 15px; fill: var(--deep-charcoal); }
 
-        /* Navigation Icons (Namsan & Tram) */
+        /* Navigation Icons */
         .category-nav { padding: 10px 0 35px 0; display: flex; justify-content: center; gap: 50px; }
         .nav-icon-btn { opacity: 0.15; display: flex; flex-direction: column; align-items: center; gap: 10px; transition: 0.4s; border: none; background: none; cursor: pointer; }
-        
-        .nav-icon-btn.kor-btn svg { width: 40px; height: 32px; } /* 남산 아이콘 크기 */
-        .nav-icon-btn.mel-btn svg { width: 40px; height: 32px; } /* 트램 아이콘 크기 */
-        
+        .nav-icon-btn.kor-btn svg { width: 40px; height: 32px; }
+        .nav-icon-btn.mel-btn svg { width: 40px; height: 32px; }
         .nav-icon-btn.active { opacity: 1; transform: scale(1.1); }
         .nav-icon-btn.active .nav-label { color: var(--olive-point); font-weight: 700; }
         .nav-label { font-family: 'Montserrat', sans-serif; font-size: 0.55rem; font-weight: 700; letter-spacing: 1.5px; }
@@ -82,6 +81,42 @@
         .signature-label { font-size: 0.5rem; font-weight: 700; color: var(--olive-point); font-family: 'Montserrat'; letter-spacing: 2px; text-transform: uppercase; margin-right: 10px; }
         .signature-name { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.2rem; color: #333; }
 
+        /* Open Scene Button - 진한 에스프레소 컬러 */
+        .open-scene-btn { 
+            display: inline-flex; align-items: center; gap: 15px; 
+            cursor: pointer; border: none; background: none; padding: 0;
+            transition: 0.3s;
+        }
+        .open-scene-btn:hover { opacity: 0.7; }
+
+        .cup-render-box { position: relative; width: 60px; height: 50px; display: flex; align-items: center; justify-content: center; }
+        /* 컵 색상을 진한 에스프레소 컬러로 변경 */
+        .cup-svg-final { width: 50px; height: 50px; fill: none; stroke: var(--espresso-deep); stroke-width: 3.8; stroke-linecap: round; stroke-linejoin: round; }
+        
+        /* Steam Animation */
+        .steam-line-v5 {
+            fill: none; stroke: var(--espresso-deep); stroke-width: 3; stroke-linecap: round;
+            opacity: 0; stroke-dasharray: 25; stroke-dashoffset: 25;
+        }
+
+        .open-scene-btn.active .steam-line-v5 {
+            animation: steam-rise-v5 1.1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+        .open-scene-btn.active .steam-line-v5:nth-child(1) { animation-delay: 0s; }
+        .open-scene-btn.active .steam-line-v5:nth-child(2) { animation-delay: 0.1s; }
+        .open-scene-btn.active .steam-line-v5:nth-child(3) { animation-delay: 0.2s; }
+
+        @keyframes steam-rise-v5 {
+            0% { opacity: 0; stroke-dashoffset: 25; transform: translateY(0); }
+            30% { opacity: 0.8; }
+            100% { opacity: 0; stroke-dashoffset: 0; transform: translateY(-25px); }
+        }
+
+        .open-scene-text { 
+            font-family: 'Montserrat', sans-serif; font-size: 0.75rem; font-weight: 700; 
+            letter-spacing: 2px; color: var(--espresso-deep); text-transform: uppercase;
+        }
+
         footer { text-align: center; padding: 100px 0; border-top: 1px solid rgba(0,0,0,0.03); }
         .end-text { font-family: 'DM Serif Display', serif; font-size: 1.4rem; font-style: italic; opacity: 0.5; margin-bottom: 10px; }
         .archive-note { font-family: 'Lora', serif; font-size: 0.8rem; font-style: italic; opacity: 0.4; }
@@ -92,22 +127,15 @@
     <svg style="display:none;">
         <symbol id="main-coffee" viewBox="0 0 24 24"><path d="M5 11h11c1.1 0 2 .9 2 2v3c0 2.2-1.8 4-4 4H7c-2.2 0-4-1.8-4-4v-3c0-1.1.9-2 2-2zm13 2h2c1.1 0 2 .9 2 2s-.9 2-2 2h-2v-4z"/><path d="M8 8c0-2 1-2 1-4M12 9c0-3 1-3 1-5M16 8c0-2 1-2 1-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
         
-        <!-- 힙하고 귀여운 남산 타워 아이콘 SVG -->
         <symbol id="filter-kor" viewBox="0 0 40 32">
-            <!-- Namsan Hill -->
             <path d="M4 28 Q20 22 36 28" fill="none" stroke="#2c2c2c" stroke-width="1.5" stroke-linecap="round"/>
-            <!-- Tower Structure -->
             <rect x="18.5" y="6" width="3" height="18" fill="#2c2c2c"/>
             <path d="M17 9h6l-1-2h-4z" fill="#2c2c2c"/>
-            <!-- Observation Deck -->
             <rect x="16.5" y="10" width="7" height="3" rx="1.5" fill="#2c2c2c"/>
-            <!-- Antenna -->
             <line x1="20" y1="2" x2="20" y2="6" stroke="#2c2c2c" stroke-width="1" stroke-linecap="round"/>
-            <!-- Subtle point color -->
             <circle cx="20" cy="11.5" r="0.8" fill="#fff"/>
         </symbol>
 
-        <!-- 예쁜 멜버른 트램 아이콘 -->
         <symbol id="filter-mel" viewBox="0 0 36 32">
             <g transform="translate(0, 4)">
                 <path d="M4 16h28v-6a4 4 0 0 0-4-4h-20a4 4 0 0 0-4 4v6z" fill="#004d33"/>
@@ -123,6 +151,16 @@
         </symbol>
 
         <symbol id="ui-back" viewBox="0 0 40 20"><path d="M10 10 L35 10 M10 10 L18 4 M10 10 L18 16" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+
+        <!-- 최종 디자인된 진한색 에스프레소컵 아이콘 -->
+        <symbol id="icon-espresso-v5" viewBox="0 0 50 50">
+            <!-- Cup Saucer -->
+            <path d="M13 41h24" />
+            <!-- Cup Body (Rounded U) -->
+            <path d="M16 18h18v10c0 5.5-4.5 10-10 10s-10-4.5-10-10v-10z" />
+            <!-- Handle -->
+            <path d="M34 21c3.5 0 6 2.5 6 5s-2.5 5-6 5" />
+        </symbol>
     </svg>
 
     <div class="landing" id="landing">
@@ -271,7 +309,7 @@
                 weather_ko: "세련된 도시의 공기가 차가울 때", weather_en: "When the sleek city air is cold",
                 vibe_ko: "레이어드된 현대적 텍스처", vibe_en: "Layered modern textures",
                 desc_ko: "반투명한 유리를 통해 빛이 겹겹이 쌓인다. 현대적인 가구와 부드러운 조명 속에서, 당신의 커피 타임이 하나의 트렌디한 화보가 되는 순간.",
-                desc_en: "Light layers through translucent glass. Amidst modern furniture and soft lighting, your coffee time becomes a trendy pictorial.",
+                desc_en: "Light layers through translucent glass. Amidst modern furniture and soft lighting, your coffee time becomes a pictorial.",
                 purpose_ko: "감각적인 공간 디자인의 체험", purpose_en: "Experience of sensible design",
                 beans: "Specialty Single", sig: "Peanut Cream Latte", rank: 15 },
 
@@ -342,7 +380,7 @@
             { area: 'Melbourne CBD', name: "Hopetoun Tea Rooms est. 1892", addr: "Bourke St",
                 weather_ko: "우아함이 필요한 특별한 날", weather_en: "Special day requiring elegance",
                 vibe_ko: "빅토리아 시대의 화려한 외출", vibe_en: "Grand Victorian-era outing",
-                desc_ko: "꽃무늬 벽지와 화려한 쇼케이스 안에 쌓인 케이크들. 19세기 귀족이 된 듯한 기분으로 조용히 찻잔을 기울이는 우아한 시대극의 한 컷.",
+                desc_ko: "꽃무늬 벽지에 화려한 쇼케이스 안에 쌓인 케이크들. 19세기 귀족이 된 듯한 기분으로 조용히 찻잔을 기울이는 우아한 시대극의 한 컷.",
                 desc_en: "Floral wallpaper and cakes in grand showcases. A period-drama cut where you feel like a 19th-century royal guest.",
                 purpose_ko: "멜버른에서 가장 오래된 전통의 미학", purpose_en: "The oldest traditional aesthetics",
                 beans: "House Tea Selection", sig: "Classic High Tea", rank: 24 },
@@ -383,7 +421,7 @@
                 weather_ko: "도시를 관찰하고 싶은 비 오는 날", weather_en: "Rainy day for city observation",
                 vibe_ko: "거리의 흐름을 엿보는 작은 관측소", vibe_en: "Small observatory peeking at street flow",
                 desc_ko: "유리창 너머로 흐르는 사람들의 우산 행렬. 잔 주변으로 흘러내린 크림의 질감이 창밖의 비 내리는 풍경과 묘하게 닮아 있는 관찰자의 시선.",
-                desc_en: "A parade of umbrellas through the glass. The flowing cream texture eerily matches the rainy view outside.",
+                desc_en: "A parade of umbrellas through the glass. The flowing cream texture matched the rainy view.",
                 purpose_ko: "더티 커피의 진한 매력", purpose_en: "The rich charm of 'Dirty Coffee'",
                 beans: "House Selection", sig: "The Dirty Coffee", rank: 29 },
 
@@ -400,7 +438,7 @@
                 weather_ko: "낮과 밤의 경계가 모호해지는 시간", weather_en: "When day and night boundaries blur",
                 vibe_ko: "커피에서 바(Bar)로 흐르는 낭만", vibe_en: "Romance flowing from coffee to bar",
                 desc_ko: "낮에는 짙은 에스프레소가 흐르고, 해가 지면 낮은 조명 아래 칵테일 쉐이커 소리가 들려온다. 바이닐 사운드와 함께 커피 향기가 술 향기로 변하는 전환의 순간.",
-                desc_en: "As sun sets, lights dim and cocktail shakers sound. With vinyl sounds, coffee aroma turns to spirit in a trance-like transition.",
+                desc_en: "As sun sets, lights dim and cocktail shakers sound. With vinyl sounds, coffee aroma turns to spirit.",
                 purpose_ko: "카페인과 알코올의 공존", purpose_en: "Caffeine and alcohol coexistence",
                 beans: "Rotating Guest Roasters", sig: "Mont Blanc Coffee", rank: 1 },
 
@@ -417,7 +455,7 @@
                 weather_ko: "취향을 실험하고 싶은 날", weather_en: "Day to experiment with tastes",
                 vibe_ko: "개성 넘치는 원두의 실험실", vibe_en: "Laboratory of characterful beans",
                 desc_ko: "The Governor의 무게감, The Commuter의 속도, The Bohemian의 자유. 세 가지 다른 페르소나의 원두가 당신의 오늘을 정의하는 입체적인 무드.",
-                desc_en: "The Governor’s weight, The Commuter’s speed, The Bohemian’s freedom. Three personas of beans defining your day.",
+                desc_en: "The Governor’s weight, The Commuter’s speed, The Bohemian’s freedom. Three personas defining your day.",
                 purpose_ko: "세 가지 블렌드의 입체적인 선택", purpose_en: "Three blends for multi-dimensional choices",
                 beans: "The Governor / The Commuter / The Bohemian", sig: "Espresso Flight", rank: 2 },
 
@@ -441,7 +479,7 @@
                 weather_ko: "진지한 커피 탐구가 필요한 오후", weather_en: "Afternoon for serious study",
                 vibe_ko: "블랙 인더스트리얼의 정점", vibe_en: "Peak of black industrial",
                 desc_ko: "거대한 로스팅 공장 속에 들어온 듯한 웅장함. 블랙 컬러가 주는 압도적인 분위기 속에서 커피 원두의 본질을 마주하는 장면.",
-                desc_en: "Grandeur of entering a huge roasting factory. Facing the essence of coffee beans in an overwhelming black atmosphere.",
+                desc_en: "Grandeur of entering a huge roasting factory. Facing the essence of coffee beans.",
                 purpose_ko: "전문적인 커피 생산 체험", purpose_en: "Professional production experience",
                 beans: "Code Black Roasts", sig: "Long Black", rank: 5 },
 
@@ -450,7 +488,7 @@
                 weather_ko: "에너지가 샘솟는 정오", weather_en: "Noon with raw energy",
                 vibe_ko: "피츠로이의 힙한 심장박동", vibe_en: "Hip heartbeat of Fitzroy",
                 desc_ko: "붉은 벽돌과 오픈 키친의 소음이 활기차다. 바쁜 에너지 속에서도 커피 한 잔에 담긴 자부심이 느껴지는 역동적인 다큐멘터리 컷.",
-                desc_en: "Red brick and open kitchen hum with life. A dynamic documentary cut where pride in a cup is felt amidst the energy.",
+                desc_en: "Red brick and open kitchen hum with life. A dynamic documentary cut.",
                 purpose_ko: "스페셜티 커피의 개척자", purpose_en: "Specialty coffee pioneer",
                 beans: "Proud Mary", sig: "V60 Filter Coffee", rank: 1 },
 
@@ -458,7 +496,7 @@
                 weather_ko: "본질에만 몰두하고 싶을 때", weather_en: "When immersing in essence",
                 vibe_ko: "블랙 전용 공간의 경건함", vibe_en: "Reverence of a black-only space",
                 desc_ko: "높은 바에 앉아 바리스타와 원두에 대해 진지한 대화를 나눈다. 검은 액체가 잔에 담길 때의 고요함이 마치 예술 감상과도 같은 정적인 장면.",
-                desc_en: "Serious talk with the barista at a high bar. The silence as black liquid fills the cup is like admiring art.",
+                desc_en: "Serious talk with the barista at a high bar. The silence as black liquid fills the cup.",
                 purpose_ko: "블랙커피의 순수함", purpose_en: "Purity of black coffee",
                 beans: "Proud Mary Rare Blends", sig: "Black Tasting Flight", rank: 2 },
 
@@ -466,7 +504,7 @@
                 weather_ko: "눈부시게 투명한 날", weather_en: "Dazzlingly clear day",
                 vibe_ko: "순백의 미니멀 화이트 큐브", vibe_en: "Pure minimal white cube",
                 desc_ko: "모든 것이 하얀 공간에 햇살이 들어와 눈부시게 빛난다. 맑은 필터 커피 한 잔이 놓일 때, 공간의 여백이 비로소 완성되는 미니멀리즘 영화의 엔딩 컷.",
-                desc_en: "In an all-white space, sunlight dazzles. As clear filter coffee is set, the empty space completes—a minimalism movie ending.",
+                desc_en: "In an all-white space, sunlight dazzles. A minimalism movie ending.",
                 purpose_ko: "하얀 공간의 마법", purpose_en: "Magic of white space",
                 beans: "ACOFFEE Roasters", sig: "Filter Coffee", rank: 3 },
 
@@ -474,7 +512,7 @@
                 weather_ko: "혁신적인 영감이 필요한 일요일", weather_en: "Sunday needing innovative inspiration",
                 vibe_ko: "거대한 창고 속 커피 팩토리", vibe_en: "Coffee factory in a grand warehouse",
                 desc_ko: "높은 층고와 노출된 콘크리트 위로 빛이 쏟아진다. 거대한 공간을 가득 채운 커피 향기와 실험적인 메뉴들이 창의성을 자극하는 웅장한 장면.",
-                desc_en: "Light pours over high ceilings and concrete. Coffee aromas and experimental menus stimulate creativity.",
+                desc_en: "Light pours over high ceilings and concrete. Coffee aromas stimulate creativity.",
                 purpose_ko: "실험적 공간 체험", purpose_en: "Experimental space experience",
                 beans: "Industry Beans", sig: "Pourover", rank: 4 },
 
@@ -483,7 +521,7 @@
                 weather_ko: "자유로운 반항아 같은 아침", weather_en: "Sunny morning like a rebel",
                 vibe_ko: "멜버른 커피 혁명의 발원지", vibe_en: "Source of Melb coffee revolution",
                 desc_ko: "그래피티가 가득한 골목, 창고 안에서 개척자들의 에너지가 폭발한다. 거친 테이블 위에 놓인 진한 라떼 한 잔이 자유를 상징하는 장면.",
-                desc_en: "An alley of graffiti, pioneers' energy explodes in a warehouse. A rich latte on a raw table symbolizes freedom.",
+                desc_en: "An alley of graffiti, pioneers' energy explodes in a warehouse. Symbolizing freedom.",
                 purpose_ko: "인더스트리얼 감성의 정수", purpose_en: "Essence of industrial vibes",
                 beans: "ST. ALi", sig: "Orthodox White Coffee", rank: 1 },
 
@@ -491,7 +529,7 @@
                 weather_ko: "마켓의 활기가 느껴지는 주말", weather_en: "Weekend market vitality",
                 vibe_ko: "다정하고 우아한 로컬의 리듬", vibe_en: "Friendly, elegant local rhythm",
                 desc_ko: "장바구니를 든 사람들 사이로 향긋한 커피 향이 퍼진다. 활기찬 시장 분위기와 대조되는 차분하고 정갈한 바의 풍경이 주는 안도감.",
-                desc_en: "Fragrant coffee scents spread among market-goers. Relief from a calm bar contrasting the vibrant market atmosphere.",
+                desc_en: "Fragrant coffee scents spread among market-goers. A calm bar contrasting the vibrant market.",
                 purpose_ko: "마켓 산책 후 누리는 깨끗한 한 잔", purpose_en: "A clean cup after a market stroll",
                 beans: "Market Lane Seasonal", sig: "Flat White", rank: 2 },
 
@@ -499,7 +537,7 @@
                 weather_ko: "품격 있는 일요일의 여유", weather_en: "Leisurely Sunday with class",
                 vibe_ko: "세련된 로컬들의 정거장", vibe_en: "A stop for sleek locals",
                 desc_ko: "잘 차려입은 사람들이 야외 테이블에 앉아 햇살을 즐긴다. 초록색 로고가 새겨진 컵 속에 담긴 일관된 완벽함이 주는 신뢰의 장면.",
-                desc_en: "Well-dressed people enjoy the sun at outdoor tables. Consistency in a green-logo cup gives a scene of reliability.",
+                desc_en: "Well-dressed people enjoy the sun at outdoor tables. A scene of reliability.",
                 purpose_ko: "클래식의 신뢰감", purpose_en: "Reliability of the classic",
                 beans: "Campos Superior", sig: "Flat White", rank: 3 },
 
@@ -507,7 +545,7 @@
                 weather_ko: "나른한 평일 오후", weather_en: "Lazy weekday afternoon",
                 vibe_ko: "시원하고 개방적인 로스터리", vibe_en: "Cool and open roastery",
                 desc_ko: "사우스 멜버른의 거리와 어울리는 블랙 인테리어. 넓은 창을 통해 들어오는 빛이 원두의 짙은 색깔과 대비되는 현대적인 장면.",
-                desc_en: "Black interior matching South Melb. Light through wide windows contrasts with deep bean colors in a modern scene.",
+                desc_en: "Black interior matching South Melb. A modern scene with wide windows.",
                 purpose_ko: "감각적인 휴식", purpose_en: "Sensible rest",
                 beans: "Code Black Roasts", sig: "Long Black", rank: 3 },
 
@@ -516,7 +554,7 @@
                 weather_ko: "커피의 한계를 시험하고 싶은 날", weather_en: "Day to test coffee's limits",
                 vibe_ko: "최첨단 커피 과학의 집약체", vibe_en: "Hub of cutting-edge coffee science",
                 desc_ko: "마치 우주 정거장 같은 브루잉 바에서 바리스타가 정밀하게 무게를 잰다. 냉동 원두가 갈리는 소리와 함께 시작되는 새로운 미각의 탐험.",
-                desc_en: "In a space-station-like bar, the barista weighs precisely. A new sensory exploration begins with grinding frozen beans.",
+                desc_en: "In a space-station-like bar, the barista weighs precisely. Grinding frozen beans.",
                 purpose_ko: "냉동 원두의 경이로움", purpose_en: "Wonders of frozen beans",
                 beans: "ONA Specialty", sig: "Raspberry Candy Espresso", rank: 1 },
 
@@ -524,7 +562,7 @@
                 weather_ko: "자유가 필요한 오후", weather_en: "Afternoon needing freedom",
                 vibe_ko: "거친 브런즈윅의 예술적 영혼", vibe_en: "Artistic soul of raw Brunswick",
                 desc_ko: "높은 층고와 탁 트인 시야, 이름처럼 끝없이 뻗은 길 위의 휴식처 같다. 거친 벽면과 예술적 감각이 어우러져 당신의 생각을 확장시키는 장면.",
-                desc_en: "High ceilings and open views, like a rest stop on an endless road. Raw walls and artistic flair expand your thoughts.",
+                desc_en: "High ceilings and open views. Raw walls and artistic flair expand your thoughts.",
                 purpose_ko: "공간이 주는 해방감", purpose_en: "Sense of liberation",
                 beans: "Wide Open Road", sig: "Bathysphere Blend White", rank: 2 },
 
@@ -532,7 +570,7 @@
                 weather_ko: "본질에만 집중하고 싶은 날", weather_en: "Day to focus on essence",
                 vibe_ko: "군더더기 없는 로스팅의 성소", vibe_en: "No-nonsense roasting sanctuary",
                 desc_ko: "장식 없는 창고 공간, 묵직한 로스팅 머신이 주인공이다. 오직 원두의 잠재력을 끌어올리는 데 집중하는 장인의 뒷모습이 남기는 여운.",
-                desc_en: "Decoration-free warehouse, the heavy roaster is the hero. The lingering image of a craftsman focused purely on bean potential.",
+                desc_en: "Decoration-free warehouse. A craftsman focused purely on bean potential.",
                 purpose_ko: "원두에 대한 경건함", purpose_en: "Reverence for the bean",
                 beans: "Disciple Roasts", sig: "Single Origin Filter", rank: 3 },
 
@@ -541,7 +579,7 @@
                 weather_ko: "로컬의 여유를 즐기는 정오", weather_en: "Noon to enjoy local leisure",
                 vibe_ko: "건축적 미학의 아지트", vibe_en: "Haunt with architectural beauty",
                 desc_ko: "리치먼드의 평온한 골목 속에서 발견한 세련된 선의 미학. 창밖으로 흐르는 동네의 일상과 커피의 균형 잡힌 맛이 조화를 이루는 평화로운 장면.",
-                desc_en: "Sleek aesthetics in Richmond's calm alley. Neighborhood daily life harmonizes with balanced coffee taste in a peaceful scene.",
+                desc_en: "Sleek aesthetics in Richmond's calm alley. Balanced coffee taste in a peaceful scene.",
                 purpose_ko: "감각적인 휴식", purpose_en: "Sensible rest",
                 beans: "Specialty Selection", sig: "Batch Brew", rank: 1 },
 
@@ -549,7 +587,7 @@
                 weather_ko: "힙한 거리의 아침", weather_en: "Morning on a hip street",
                 vibe_ko: "세련되고 감각적인 톤", vibe_en: "Sleek and sensible tones",
                 desc_ko: "세련된 윈도우 너머로 프라란의 힙한 사람들이 오간다. 밝은 공간과 정갈한 인테리어과 당신의 하루를 감각적으로 채워주는 장면.",
-                desc_en: "Beyond sleek windows, Prahran's hip crowd passes. A bright space and neat interior fill your day sensibly.",
+                desc_en: "Beyond sleek windows, Prahran's hip crowd passes. A bright space and neat interior.",
                 purpose_ko: "감각적인 한 잔", purpose_en: "A sensible cup",
                 beans: "Tone Roasters", sig: "Seasonal Espresso", rank: 1 },
 
@@ -557,7 +595,7 @@
                 weather_ko: "교외의 나른한 낮", weather_en: "Lazy noon in suburbs",
                 vibe_ko: "단정하고 따스한 쉼터", vibe_en: "Neat, warm neighborhood shelter",
                 desc_ko: "햇살이 길게 드리워진 창가, 부드러운 우유 거품이 가득한 라떼 한 잔. 소란스럽지 않은 동네의 리듬에 맞춰 깊은 휴식을 취하는 평화로운 컷.",
-                desc_en: "Long sunlight at the window, a latte with soft foam. A peaceful cut of deep rest following the town's quiet rhythm.",
+                desc_en: "Long sunlight, a latte with soft foam. Deep rest following the town's quiet rhythm.",
                 purpose_ko: "편안한 커피 타임", purpose_en: "Comfortable coffee time",
                 beans: "Selected Specialty", sig: "Signature Latte", rank: 1 }
         ];
@@ -597,6 +635,31 @@
         function setFilter(filter) { currentFilter = filter; renderNav(); renderList(); }
         function handleSearch(query) { currentSearchQuery = query.toLowerCase(); renderList(); }
 
+        /**
+         * 애니메이션 후 구글 지도로 새 창 이동 (브라우저 차단 우회 보장)
+         */
+        function triggerScene(btn, url) {
+            if(btn.classList.contains('active')) return;
+            btn.classList.add('active');
+            
+            // 0.8초간 연기가 피어오르는 연출을 보여준 후 이동
+            setTimeout(() => {
+                const mapLink = document.createElement('a');
+                mapLink.href = url;
+                mapLink.target = '_blank';
+                mapLink.rel = 'noopener noreferrer';
+                
+                document.body.appendChild(mapLink);
+                mapLink.click();
+                document.body.removeChild(mapLink);
+                
+                // 이동 후 딜레이 뒤에 상태 초기화
+                setTimeout(() => {
+                    btn.classList.remove('active');
+                }, 400);
+            }, 800);
+        }
+
         function renderList() {
             const container = document.getElementById('shop-list');
             const isKo = currentFilter === 'korean';
@@ -623,7 +686,9 @@
             container.innerHTML = sortedAreas.map(area => `
                 <section class="area-section">
                     <h3 class="area-header">${area}</h3>
-                    ${grouped[area].sort((a, b) => a.rank - b.rank).map(shop => `
+                    ${grouped[area].sort((a, b) => a.rank - b.rank).map(shop => {
+                        const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(shop.name + ' ' + area + ' Melbourne')}`;
+                        return `
                         <div class="shop-item">
                             <div class="shop-meta">${shop.addr}</div>
                             <h2 class="shop-name">${shop.name}</h2>
@@ -635,8 +700,22 @@
                             </div>
                             <p class="shop-desc">${isKo ? shop.desc_ko : shop.desc_en}</p>
                             <div class="signature-box"><span class="signature-label">SIGNATURE</span><span class="signature-name">${shop.sig}</span></div>
+                            
+                            <button class="open-scene-btn" onclick="triggerScene(this, '${googleMapsUrl}')">
+                                <div class="cup-render-box">
+                                    <!-- 부드러운 3줄 곡선 연기 -->
+                                    <svg viewBox="0 0 50 50" style="position:absolute; top:-28px; left:0; width:60px; height:50px; pointer-events:none;">
+                                        <path class="steam-line-v5" d="M18 35 Q20 25 16 20 T18 5" />
+                                        <path class="steam-line-v5" d="M25 35 Q28 22 23 18 T25 0" />
+                                        <path class="steam-line-v5" d="M32 35 Q34 25 30 20 T32 5" />
+                                    </svg>
+                                    <!-- 진한 에스프레소 컬러의 컵 아이콘 -->
+                                    <svg class="cup-svg-final"><use href="#icon-espresso-v5"></use></svg>
+                                </div>
+                                <span class="open-scene-text">Open Scene</span>
+                            </button>
                         </div>
-                    `).join('')}
+                    `}).join('')}
                 </section>
             `).join('');
 
