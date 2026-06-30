@@ -2,13 +2,101 @@
 <html lang="ko">
 <head>
 
-<div style="text-align: center; margin: 25px auto; padding: 18px; width: 90%; background-color: #fdfbf7; border-radius: 12px; border: 1px solid #ebdccb; box-shadow: 0 4px 6px rgba(0,0,0,0.03);">
-  <p style="margin: 0 0 12px 0; font-size: 14px; color: #8B4513; font-weight: bold; font-family: sans-serif;">
-    ☕️ 아래 재생(▶️) 버튼을 누르면 카페 음악이 나옵니다
-  </p>
-  <!-- preload="auto"를 넣어 아이폰이 노래 전체를 미리 다 로딩하게 만듭니다 -->
-  <audio id="cafeAudio" controls src="Cocktail Hour - Aaron Kenny.mp3" loop preload="auto" style="width: 100%; outline: none;"></audio>
+<style>
+  /* 플레이어 전체 박스 */
+  .cafe-player {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 25px auto;
+    padding: 12px 20px;
+    width: 85%;
+    max-width: 320px;
+    background-color: #f7f5f0; /* 따뜻한 베이지 색상 */
+    border: 1px solid #ebdccb;
+    border-radius: 30px; /* 깔끔한 알약 모양 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+  }
+
+  /* 왼쪽: 음표 아이콘과 텍스트 */
+  .player-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  /* 심플하고 힙한 올리브색 레코드 이미지 아이콘 */
+  .player-icon {
+    width: 24px;
+    height: 24px;
+    background-color: #556b2f; /* 올리브 그린 */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 11px;
+  }
+
+  /* 음악 제목 텍스트 */
+  .player-text {
+    font-size: 13px;
+    color: #556b2f; /* 올리브 그린 */
+    font-weight: 500;
+    font-family: sans-serif;
+  }
+
+  /* 오른쪽: 동그란 재생 버튼 */
+  .play-circle-btn {
+    width: 36px;
+    height: 36px;
+    background-color: #556b2f; /* 올리브 그린 */
+    border: none;
+    border-radius: 50%;
+    color: #ffffff;
+    font-size: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+</style>
+
+<div class="cafe-player">
+  <div class="player-info">
+    <div class="player-icon">♩</div>
+    <span class="player-text">Melbourne Cafe Mood</span>
+  </div>
+  
+  <audio id="cafeAudio" src="cafe.mp3" loop preload="auto"></audio>
+  
+  <button class="play-circle-btn" id="playBtn" onclick="toggleAudio()">▶</button>
 </div>
+
+<script>
+  const audio = document.getElementById('cafeAudio');
+  const playBtn = document.getElementById('playBtn');
+
+  function toggleAudio() {
+    if (audio.paused) {
+      audio.play().then(() => {
+        playBtn.innerText = '⏸'; // 재생 중일 때는 일시정지 모양
+      });
+    } else {
+      audio.pause();
+      playBtn.innerText = '▶'; // 멈추면 다시 재생 모양
+    }
+  }
+
+  /* 노래가 끝나면 자동으로 다시 처음부터 무한 반복 재생되는 안전장치 */
+  audio.addEventListener('ended', function() {
+    audio.currentTime = 0;
+    audio.play();
+    playBtn.innerText = '⏸';
+  }, false);
+</script>
 
 <!-- 💡 아이폰에서 노래가 중간에 끊기거나 안 도는 버그를 강제로 고쳐주는 스크립트입니다 -->
 <script>
