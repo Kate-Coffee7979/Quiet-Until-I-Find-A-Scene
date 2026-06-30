@@ -14,7 +14,7 @@
     padding: 12px 20px;
     width: 85%;
     max-width: 320px;
-    background-color: #f7f5f0; /* 따뜻한 베이지 색상 */
+    background-color: #f7f5f0; /* 따뜻한 베이지 색상 (그대로 유지) */
     border: 1px solid #ebdccb;
     border-radius: 30px; /* 깔끔한 알약 모양 */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
@@ -27,11 +27,11 @@
     gap: 10px;
   }
 
-  /* 심플하고 힙한 올리브색 레코드 이미지 아이콘 */
+  /* 심플하고 힙한 연한 올리브색 레코드 이미지 아이콘 */
   .player-icon {
     width: 24px;
     height: 24px;
-    background-color: #556b2f; /* 올리브 그린 */
+    background-color: #8fa07d; /* 🎨 색상 수정: 더 은은하고 연한 올리브 세이지 그린 */
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -43,7 +43,7 @@
   /* 음악 제목 텍스트 */
   .player-text {
     font-size: 13px;
-    color: #556b2f; /* 올리브 그린 */
+    color: #8fa07d; /* 🎨 색상 수정: 텍스트도 연한 올리브색으로 통일 */
     font-weight: 500;
     font-family: sans-serif;
   }
@@ -52,11 +52,11 @@
   .play-circle-btn {
     width: 36px;
     height: 36px;
-    background-color: #556b2f; /* 올리브 그린 */
+    background-color: #8fa07d; /* 🎨 색상 수정: 버튼도 연한 올리브 포인트 컬러 */
     border: none;
     border-radius: 50%;
     color: #ffffff;
-    font-size: 13px;
+    font-size: 14px;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -72,7 +72,7 @@
     <span class="player-text">Melbourne Cafe Mood</span>
   </div>
   
-  <audio id="cafeAudio" src="Cocktail Hour - Aaron Kenny.mp3" loop preload="auto"></audio>
+  <audio id="cafeAudio" src="cafe.mp3" loop preload="auto"></audio>
   
   <button class="play-circle-btn" id="playBtn" onclick="toggleAudio()">
     <i class="fas fa-play" style="margin-left: 2px;"></i>
