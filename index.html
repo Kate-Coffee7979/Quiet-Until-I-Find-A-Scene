@@ -2,6 +2,8 @@
 <html lang="ko">
 <head>
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
 <style>
   /* 플레이어 전체 박스 */
   .cafe-player {
@@ -54,7 +56,7 @@
     border: none;
     border-radius: 50%;
     color: #ffffff;
-    font-size: 12px;
+    font-size: 13px;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -70,9 +72,11 @@
     <span class="player-text">Melbourne Cafe Mood</span>
   </div>
   
-  <audio id="cafeAudio" src="Cocktail Hour - Aaron Kenny.mp3" loop preload="auto"></audio>
+  <audio id="cafeAudio" src="cafe.mp3" loop preload="auto"></audio>
   
-  <button class="play-circle-btn" id="playBtn" onclick="toggleAudio()">▶</button>
+  <button class="play-circle-btn" id="playBtn" onclick="toggleAudio()">
+    <i class="fas fa-play" style="margin-left: 2px;"></i>
+  </button>
 </div>
 
 <script>
@@ -82,11 +86,13 @@
   function toggleAudio() {
     if (audio.paused) {
       audio.play().then(() => {
-        playBtn.innerText = '⏸'; // 재생 중일 때는 일시정지 모양
+        // 재생 중일 때는 세련된 일시정지(||) 아이콘으로 변신
+        playBtn.innerHTML = '<i class="fas fa-pause"></i>';
       });
     } else {
       audio.pause();
-      playBtn.innerText = '▶'; // 멈추면 다시 재생 모양
+      // 멈추면 다시 세련된 재생(▶) 아이콘으로 변신
+      playBtn.innerHTML = '<i class="fas fa-play" style="margin-left: 2px;"></i>';
     }
   }
 
@@ -94,16 +100,7 @@
   audio.addEventListener('ended', function() {
     audio.currentTime = 0;
     audio.play();
-    playBtn.innerText = '⏸';
-  }, false);
-</script>
-
-<!-- 💡 아이폰에서 노래가 중간에 끊기거나 안 도는 버그를 강제로 고쳐주는 스크립트입니다 -->
-<script>
-  const audio = document.getElementById('cafeAudio');
-  audio.addEventListener('ended', function() {
-    audio.currentTime = 0;
-    audio.play();
+    playBtn.innerHTML = '<i class="fas fa-pause"></i>';
   }, false);
 </script>
   
